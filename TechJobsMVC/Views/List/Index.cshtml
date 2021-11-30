@@ -18,11 +18,11 @@
         <td></td> @* Feel free to remove or modify this element if necessary. *@
         @foreach (var category in ViewBag.tableChoices)
         {
-            <td>
+            <td th:each="category : ${tableChoices}">
                 <ul>
                     @foreach (var item in category.Value)
                     {
-                        <li>
+                        <li th:each="category : ${category.value}">
                             <a asp-controller="List" asp-action="Jobs" asp-route-column="@category.Key" asp-route-value="@item">@item</a>
                         </li>
                     }
@@ -31,3 +31,5 @@
         }
     </tr>
         </table>
+        
+        
