@@ -6,6 +6,7 @@
 <table class="centeredTable">
     <tr>
         @foreach(var column in ViewBag.columns)
+           // @if (column.value != "all)//
         {
             <th>@column.Value</th>
         }
@@ -20,11 +21,13 @@
         {
             <td th:each="category : ${tableChoices}">
                 <ul>
+                                       
                     @foreach (var item in category.Value)
                     {
                         <li th:each="category : ${category.value}">
                             <a asp-controller="List" asp-action="Jobs" asp-route-column="@category.Key" asp-route-value="@item">@item</a>
                         </li>
+                   
                     }
                 </ul>
             </td>
